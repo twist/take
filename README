@@ -7,5 +7,19 @@
 	(c) 2010 adam@webit.de bellee@webit.de
 
 
-	a wrapper script for rake. saves you quite alot of typing. 
+	a wrapper script for rails testing with rake.
+
+        USAGE
+        -----
+
+        > take { [ f | i | l | u]  | [ path/to/test.rb ] | [ path/to/test.rb test_x ] } 
+
+        EXAMPLES
+        --------
+
+        > take u # all unit tests
+        
+        > take test/integration/foo/bar_test.rb #run specific test file
+
+        > take test/integration/foo/bar_test.rb test_whatever # run specific test
 	
