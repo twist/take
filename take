@@ -15,7 +15,7 @@ if [ "$1" == "-h" ]; then SHOWHELP="1"; fi
 if [ "$SHOWHELP" == "1" ]
 then
   echo "take 1.0 usage:"
-  echo "$0 { [ f | i | l | u]  | [ pfad/zum/test ] | [ pfad/zum/test test_x ] }"
+  echo "$0 { [ f | i | l | u | p]  | [ pfad/zum/test ] | [ pfad/zum/test test_x ] }"
   exit
 fi
 # Was fuer ne Testart?
@@ -38,6 +38,9 @@ then
   elif [ -n "`echo $1 | grep lib`" ]
   then
     TESTKIND="libs" 
+  elif [ -n "`echo $1 | grep plugins`" ]
+  then
+    TESTKIND="plugins" 
   fi
 
   LINE="rake test:$TESTKIND TEST=$1"
@@ -50,6 +53,7 @@ else #the first argument is the testkind
   if [ "${TESTKIND:0:1}" = "i" ];then TESTKIND="integration"; fi 
   if [ "${TESTKIND:0:1}" = "u" ];then TESTKIND="units"; fi 
   if [ "${TESTKIND:0:1}" = "l" ];then TESTKIND="libs"; fi 
+  if [ "${TESTKIND:0:1}" = "p" ];then TESTKIND="plugins"; fi 
 
   LINE="rake test:$TESTKIND"
   if [ "$2" != "" ]
