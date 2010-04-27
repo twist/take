@@ -18,6 +18,18 @@ then
   echo "$0 { [ f | i | l | u | p]  | [ pfad/zum/test ] | [ pfad/zum/test test_x ] }"
   exit
 fi
+#testlisting
+if [ "$1" == "--list" ]
+then
+        if [ -f "$2" ]
+        then
+
+                grep "def test_" $2
+                exit 0
+        fi
+fi
+
+
 # Was fuer ne Testart?
 TESTKIND=$1
 
