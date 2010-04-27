@@ -12,7 +12,8 @@
         USAGE
         -----
 
-        > take { [ f | i | l | u]  | [ path/to/test.rb ] | [ path/to/test.rb test_x ] } 
+        > take { [ f | i | l | u]  | [ path/to/test.rb ] | [ path/to/test.rb test_x ] | [ --list path/to/test.rb ] } 
+
 
         EXAMPLES
         --------
@@ -22,4 +23,6 @@
         > take test/integration/foo/bar_test.rb #run specific test file
 
         > take test/integration/foo/bar_test.rb test_whatever # run specific test
+
+        > take --list test/integration/foo/bar_test.rb # shows all tests in the given file
 	
