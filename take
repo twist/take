@@ -27,6 +27,15 @@ then
                 grep "def test_" $2
                 exit 0
         fi
+elif [ "$2" == "--list" ]
+then
+        if [ -f "$1" ]
+        then
+
+                grep "def test_" $1
+                exit 0
+        fi
+
 fi
 
 
