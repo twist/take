@@ -38,6 +38,20 @@ then
 
 fi
 
+#rekursives testen
+if [ "$1" == "-r" ]
+then
+        echo "testing recursivly..."
+                for T in `find $2 -name "*test.rb"` 
+                do
+                        echo "testing $T"
+                        take $T
+                done
+        exit
+
+fi
+
+
 
 # Was fuer ne Testart?
 TESTKIND=$1
@@ -63,6 +77,7 @@ then
   then
     TESTKIND="plugins" 
   fi
+
 
   LINE="rake test:$TESTKIND TEST=$1"
   if [ "$2" != "" ]
