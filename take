@@ -90,6 +90,7 @@ else #the first argument is the testkind
   if [ "${TESTKIND:0:1}" = "u" ];then TESTKIND="units"; fi 
   if [ "${TESTKIND:0:1}" = "l" ];then TESTKIND="libs"; fi 
   if [ "${TESTKIND:0:1}" = "p" ];then TESTKIND="plugins"; fi 
+  if [ "${TESTKIND:0:1}" = "a" ];then TESTKIND="all"; fi 
 
   LINE="rake test:$TESTKIND"
   if [ "$2" != "" ]
