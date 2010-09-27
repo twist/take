@@ -82,7 +82,20 @@ then
   LINE="rake test:$TESTKIND TEST=$1"
   if [ "$2" != "" ]
   then
-    LINE=$LINE" TESTOPTS=-n$2"
+          if [ "$2" == "-f" ]
+          then
+                  echo "fuzzy"
+                  TESTS="`grep "test_.*$3.*" $1 | awk '{print $2}'`"
+                        for T in $TESTS 
+                        do
+                                echo "testing $T"
+                                take $1 $T
+
+                        done
+                   exit
+          else
+            LINE=$LINE" TESTOPTS=-n$2"
+          fi
   fi
 else #the first argument is the testkind
   if [ "${TESTKIND:0:1}" = "f" ];then TESTKIND="functionals"; fi 
