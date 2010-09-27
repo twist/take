@@ -12,7 +12,7 @@
         USAGE
         -----
 
-        > take { [ f | i | l | u]  | [ path/to/test.rb ] | [ path/to/test.rb test_x ] | [ --list path/to/test.rb ] | [ -r path/to/some/tests] } 
+        > take { [ f | i | l | u]  | [ path/to/test.rb [-f pattern] ] | [ path/to/test.rb test_x ] | [ --list path/to/test.rb ] | [ -r path/to/some/tests] } 
 
 
         EXAMPLES
@@ -21,6 +21,8 @@
         > take u # all unit tests
         
         > take test/integration/foo/bar_test.rb #run specific test file
+
+        > take test/integration/foo/bar_test.rb -f pattern #run all tests from this file with a name matching the pattern 
 
         > take test/integration/foo/bar_test.rb test_whatever # run specific test
 
